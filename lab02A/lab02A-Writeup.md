@@ -44,7 +44,7 @@ for(locals.i=0; locals.i!=10; locals.i++)
 }
 ```
 At the end it will `print` the concatenated characters.
-## shell()
+## void shell()
 This function starts a shell. Our goal will be to call this function.
 
 # Finding the buffer overflow
