@@ -24,7 +24,7 @@ This function will start a shell if we pass '/bin/sh' as the parameter. Our goal
 # Finding the buffer overflow
 If someone knows one vulnerable c function, it is `strcpy()`. Since there is not much happening apart from that, we can be quite confident, that this will be our target. 
 ## Finding a buffer overflow in strcpy()
-The content we copy over is passed by us via argument. But if you´ll take a look in the code the length is never checked. Hence we can pass an array as large as we want to argv. This argv is then copied over to our array with the length of 15 bytes. So if our argv array is longer than 15 characters, we´ll continue overwriting the stack that comes after the 15 bytes.
+The content we copy over is passed by us via argument. But if you take a look in the code the length is never checked. Hence we can pass an array as large as we want to argv. This argv is then copied over to our array with the length of 15 bytes. So if our argv array is longer than 15 characters, we´ll continue overwriting the stack that comes after the 15 bytes.
 ## exploiting strcpy()
 Our end goal is to call the `shell()` function.
 > !! A function can be called from different places in the code. To know from which place the function was called the return address will be stored on the stack. By overwriting this address to the address of the `shell()` function after we´ll jump to `shell()` and not `main()` after we leave `print_name()`
